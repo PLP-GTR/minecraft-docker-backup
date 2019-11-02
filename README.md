@@ -8,10 +8,13 @@ Currently the setup is too simple:
 - Backups every night to home dir on same server
 - Yeah that's it
 
-Abbreviations:
+Check other projects for better usage instead of this one:
+- audy/backup-minecraft.rb [dockerized minecraft backup](https://gist.github.com/audy/e04f617f6ba2ae045b04)
+- [Lerk](https://lerks.blog)'s [Automagic Minecraft Server Backups With Map Renderings Using GitLab CI and GitLab Pages](https://lerks.blog/automagic-minecraft-server-backups-with-map-renderings-using-gitlab-ci-and-gitlab-pages/)
+
+Abbreviations in this Readme:
 - `dc`: Docker
 - `mc`: Minecraft
-
 
 # About the server(s)
 
