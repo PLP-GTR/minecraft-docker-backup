@@ -14,21 +14,25 @@ _rp=$2
 printf $_c
 printf $_rp
 
-printf "Handling Server Shutdown..."
-docker exec $_c rcon-cli --password $_rp say Server is going down for backups in 5 minutes!
-sleep 5m
-docker exec $_c rcon-cli --password $_rp say Server is going down for backups in 1 minute!
-sleep 1m
-docker exec $_c rcon-cli --password $_rp say Server is going down for backups now!
-docker exec $_c rcon-cli --password $_rp say This is going to take a minute.
+if sudo docker ps --format '{{.Names}}' | grep -Eq "^${_c}\$"; then
+  printf "Handling Server Shutdown..."
+  docker exec $_c rcon-cli --password $_rp say Server is going down for backups in 5 minutes!
+  sleep 5m
+  docker exec $_c rcon-cli --password $_rp say Server is going down for backups in 1 minute!
+  sleep 1m
+  docker exec $_c rcon-cli --password $_rp say Server is going down for backups now!
+  docker exec $_c rcon-cli --password $_rp say This is going to take a minute.
 
-# Save the world before stopping the server (stop also saves world but w/e)
-printf "Handling world saving before shutdown..."
-docker exec $_c rcon-cli --password $_rp save-all
-sleep 10s
-printf "Shutting down minecraft server..."
-docker exec $_c rcon-cli --password $_rp stop
-sleep 10s
+  # Save the world before stopping the server (stop also saves world but w/e)
+  printf "Handling world saving before shutdown..."
+  docker exec $_c rcon-cli --password $_rp save-all
+  sleep 10s
+  printf "Shutting down minecraft server..."
+  docker exec $_c rcon-cli --password $_rp stop
+  sleep 10s
+else
+  printf "Server not running!"
+fi
 
 # Copy the world to another directory and start the server again
 printf "Copying over the data folder to home dir..."
