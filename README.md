@@ -29,7 +29,7 @@ Servers run by docker with following commands:
 
 Minecraft data directory mapped by volume to host directory: `/var/docker/dc_mc_sui_data`
 
-`docker run -d -e EULA=TRUE -e VERSION=1.14.4 -p 2320:25565 -v /var/docker/dc_mc_sui_data:/data --name mc_sui itzg/minecraft-server:latest`
+`docker run -d -e EULA=TRUE -e VERSION=1.15.2 -p 2320:25565 -v /var/docker/dc_mc_sui_data:/data --name mc_sui itzg/minecraft-server:latest`
 
 ## Server B
 
@@ -37,7 +37,7 @@ Minecraft data directory mapped by volume to host directory: `/var/docker/dc_mc_
 
 Minecraft data directory mapped by volume to host directory: `/var/docker/dc_mc_laawesome_data`
 
-`docker run -d -e EULA=TRUE -e VERSION=1.14.4 -p 25565:25565 -v /var/docker/dc_mc_laawesome_data:/data --name mc_laawesome itzg/minecraft-server:latest`
+`docker run -d -e EULA=TRUE -e VERSION=1.15.2 -p 25565:25565 -v /var/docker/dc_mc_laawesome_data:/data --name mc_laawesome itzg/minecraft-server:latest`
 
 # Script
 
