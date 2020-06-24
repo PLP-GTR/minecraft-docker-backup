@@ -68,3 +68,19 @@ Cron example (no, these rcon passwords are not used anywhere):
 5 4 * * * sh /home/plpgtr/backup_dc_mc.sh mc_sui 68xEnjaVJFNDaD > /home/plpgtr/logs/backup_dc_mc_sui.log 2>&1
 15 4 * * * sh /home/plpgtr/backup_dc_mc.sh mc_laawesome AD9B4gV3Q3J7pB > /home/plpgtr/logs/backup_dc_mc_laawesome.log 2>&1
 ```
+
+# Update minecraft
+
+Stop both servers and rename the current containers with the version they where running on. Then start the server with the new version.\
+**ATTENTION**: Major version strings are `1.16` instead of `1.16.0`.
+
+```
+docker stop mc_laawesome
+docker stop mc_sui
+
+docker rename mc_laawesome mc_laawesome_1_15_2
+docker rename mc_sui mc_sui_1_15_2
+
+docker run -d -e EULA=TRUE -e VERSION=1.16.1 -p 25565:25565 -v /var/docker/dc_mc_laawesome_data:/data --name mc_laawesome itzg/minecraft-server:latest
+docker run -d -e EULA=TRUE -e VERSION=1.16.1 -p 2320:25565 -v /var/docker/dc_mc_sui_data:/data --name mc_sui itzg/minecraft-server:latest
+```
