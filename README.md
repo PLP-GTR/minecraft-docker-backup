@@ -3,6 +3,10 @@ Backup script for Minecraft running by docker
 
 *DISCLAIMER:* This is mainly a repository with stuff to help me remember how I set it up. This might break your system or whatever setup you are using. Maybe you should search for better alternatives but I started from scratch and this is it. I want to switch to rsnapshot and transfer the backups off the machine. (This note can also be read by future me!)
 
+→ Future me: I've switched to [LGSM - Linux Game Server Managers](https://linuxgsm.com) and [borgmatic](https://torsion.org/borgmatic/)
+
+---
+
 Currently the setup is too simple:
 - 2 Minecraft servers run by docker
 - Backups every night to home dir on same server
